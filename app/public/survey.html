@@ -124,20 +124,18 @@
         <div id="myModal" class="modal">
 
             <!-- Modal -->
-            <div class="modal" tabindex="-1" role="dialog" id = "newFriendInfo">
+            <div class="modal" tabindex="-1" role="dialog" id="newFriendInfo">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">Modal title</h5>
+                            <h5 class="modal-title">Meet Your New Friend</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p>Modal body text goes here.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                            <p id="newFriendName">Modal body text goes here.</p>
+                            <img id="newFriendPhoto" alt="New Friend Image">
                         </div>
                     </div>
                 </div>
@@ -171,37 +169,46 @@
 
         $.post('/api/friends', newFriend)
             .done(function (data) {
-
-                console.log(newFriend)
-
+                console.log(data)
+                $("#newFriendName").html(data.name);
+                $("#newFriendPhoto").attr("src", data.photo);
             });
-        // Clear the form after submission
-        $("#friendName").val("");
-        $("#photo").val("");
-        $('input[name=Q10]').val("")
+
 
         // Get the modal
         var modal = $(".modal")
-            modal.show();
-        // // Get the button that opens the modal
-        // var btn = document.getElementById("myBtn");
+        modal.show();
+
 
         // Get the <span> element that closes the modal
         var span = $(".close")[0];
 
-        $("#newFriendInfo").modal('open')
 
         // When the user clicks on <span> (x), close the modal
-        // span.onclick = function () {
-        //     modal.style.display = "none";
-        // }
+        span.onclick = function () {
+            modal.hide();
+        }
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
             if (event.target == modal) {
-                modal.style.display = "none";
+                modal.hide()
             }
         }
+
+        // Clear the form after submission
+        $("#friendName").val("");
+        $("#photo").val("");
+        $('input[name="Q1"]').prop('checked', false)
+        $('input[name="Q2"]').prop('checked', false)
+        $('input[name="Q3"]').prop('checked', false)
+        $('input[name="Q4"]').prop('checked', false)
+        $('input[name="Q5"]').prop('checked', false)
+        $('input[name="Q6"]').prop('checked', false)
+        $('input[name="Q7"]').prop('checked', false)
+        $('input[name="Q8"]').prop('checked', false)
+        $('input[name="Q9"]').prop('checked', false)
+        $('input[name="Q10"]').prop('checked', false)
     });
 
 

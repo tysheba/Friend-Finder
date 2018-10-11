@@ -19,7 +19,6 @@ module.exports = function (app) {
 
         var newFriendScores = req.body.scores;
         var scoresArray = [];
-        var numFriends = 0;
         var bestMatch = 0;
 
         //runs through all current friends in list

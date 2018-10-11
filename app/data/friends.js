@@ -22,7 +22,7 @@ var friends = [
   },
   {
     "name": "Cheryl",
-    "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "photo": "https://www.billboard.com/files/media/miley-cyrus-vf-2-2018-billboard-1548.jpg",
     "scores": [
       3,
       1,
